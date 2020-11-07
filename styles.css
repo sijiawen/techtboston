@@ -3,6 +3,10 @@
 
 /* Index */
 
+body {
+    overflow: hidden; /* Hide scrollbars */
+  }
+
 #landing {
     height: 100vh;
     background-color:#C8F4F9;
@@ -52,3 +56,19 @@ color: #C26DBC;
 font-family: "Rokkitt";
 font-weight: 500;
 }
+
+/* New Letter Page */
+
+#newLetter {
+    background-color: #f1c7ef;
+}
+
+.newlettertext {
+    font-size: 30px;
+}
+
+#message {
+    height:150px;
+    overflow-y: scroll;
+    resize: none;
+  }
