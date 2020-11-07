@@ -8,6 +8,18 @@
     background-color:#C8F4F9;
 }
 
+.landingimg {
+    height: 40px;
+}
+
+#login {
+    display: block;
+}
+
+#signup {
+    display: none;
+}
+
 .submit {
     background-color:#C26DBC;
     border: none;
@@ -21,22 +33,22 @@
     border-radius: 20px;
   }
 
-  .title {
-    color: #3CACAE;
-    font-family: "Rokkitt";
-    font-weight: 900;
-    font-size: 100px;
-  }
+.title {
+color: #3CACAE;
+font-family: "Rokkitt";
+font-weight: 900;
+font-size: 100px;
+}
 
-  .d-text {
-    color: #3CACAE;
-    font-family: "Ubuntu";
-    font-weight: 900;
-    
-  }
+.d-text {
+color: #3CACAE;
+font-family: "Ubuntu";
+font-weight: 900;
 
-  .l-text {
-    color: #C26DBC;
-    font-family: "Rokkitt";
-    font-weight: 500;
-  }
+}
+
+.l-text {
+color: #C26DBC;
+font-family: "Rokkitt";
+font-weight: 500;
+}
