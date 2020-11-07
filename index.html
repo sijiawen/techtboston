@@ -13,20 +13,39 @@
 </head>
 
 <body>
-    <div id="landing" class="container-fluid d-flex align-items-center">
-        <div class="container align-items-center p-auto">
-            <div class="row text-center align-items-center m-auto">
-                <div class="col-sm-6 bg-info">
-                    <img src="/img/email.png" alt="envelope">
+    <section id="landing" class="d-flex align-items-center ">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-6 bg-info text-center p-5">
+                    <h1 class="display-1">ReCALL</h1>
+                    <img src="/img/letter.svg" alt="envelope" class="img-fluid">
                 </div>
-                <div class="col-sm-6 bg-info">
-                    <img id="ptp" src="/assets/PTP.png" alt="perry">
+                <div class="col-sm-6 bg-primary d-flex align-items-center mx-auto">
+                    <form class="p-3 m-auto">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp" placeholder="Enter email">
+                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with
+                                anyone
+                                else.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1"
+                                placeholder="Password">
+                        </div>
+                        <div class="form-check">
+                            <p>New to ReCALL? <a href="#">Create an Account.</a></p>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
 
+                    </form>
                 </div>
             </div>
 
         </div>
-    </div>
+    </section>
 </body>
 
 </html>
