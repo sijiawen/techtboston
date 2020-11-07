@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:300,400,700,900');
+@import url('https://fonts.googleapis.com/css?family=Rokkitt:300,500,900');
+
+/* Index */
+
+body {
+    overflow: hidden; /* Hide scrollbars */
+  }
+
+#landing {
+    height: 100vh;
+    background-color:#C8F4F9;
+}
+
+.landingimg {
+    height: 40px;
+}
+
+#login {
+    display: block;
+}
+
+#signup {
+    display: none;
+}
+
+.submit {
+    background-color:#C26DBC;
+    border: none;
+    color: white;
+    padding: 5px 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    border-radius: 20px;
+  }
+
+.title {
+color: #3CACAE;
+font-family: "Rokkitt";
+font-weight: 900;
+font-size: 100px;
+}
+
+.d-text {
+color: #3CACAE;
+font-family: "Ubuntu";
+font-weight: 900;
+
+}
+
+.l-text {
+color: #C26DBC;
+font-family: "Rokkitt";
+font-weight: 500;
+}
+
+/* New Letter Page */
+
+#newLetter {
+    background-color: #f1c7ef;
+}
+
+.newlettertext {
+    font-size: 30px;
+}
+
+#message {
+    height:150px;
+    overflow-y: scroll;
+    resize: none;
+  }
