@@ -27,7 +27,7 @@ app.post('/api/create', (req, res) => {
       })();
   });
 
-
+//credentials
 let transporter = nodemailer.createTransport({
 host: "smtp.mailtrap.io",
   port: 2525,  
@@ -35,6 +35,57 @@ host: "smtp.mailtrap.io",
     user: "336bded6d33bec",
     pass: "e833d9b254bb4a"
   }
+});
+
+
+document.getElementById('email').send = function () {
+    var datecheck =
+        document.querySelector("#date [name='date']");
+    var myDate = datecheck.value;
+    var emailcheck =
+        document.querySelector("#email [name='email']");
+    var email = emailcheck.value;
+    var msgcheck =
+        document.querySelector("#msg [name='msg']");
+    var message = msgcheck.value;
+}
+
+var mailOptions = {
+  from: email,
+  to: email,
+  subject: 'Dear Future Me',
+  text: message
+};
+
+transporter.sendMail(mailOptions, function(error, info){
+  if (error) {
+    console.log(error);
+  } else {
+    console.log('Email sent: ' + info.response);
+  }
+});
+
+/*
+exports.sendEmail = 
+    .document('mail/{mailId}')
+    .onCreate((snap, context) => {
+
+});
+
+const mailOptions = {
+    from: `softauthor1@gmail.com`,
+    to: snap.data().email,
+    subject: 'contact form message',
+    html: `<h1>Order Confirmation</h1>
+     <p> <b>Email: </b>${snap.data().email} </p>`
+};
+
+return transporter.sendMail(mailOptions, (error, data) => {
+    if (error) {
+        console.log(error)
+        return
+    }
+    console.log("Sent!")
 });
 
 exports.emailSender = functions.https.onRequest((req, res) => {   
@@ -56,5 +107,5 @@ exports.emailSender = functions.https.onRequest((req, res) => {
         });
        
 });
-
+*/
 
