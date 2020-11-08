@@ -14,6 +14,12 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 
+const handlebars = require('express-handlebars').create({ defaultLayout: 'main' });
+
+app.engine('handlebars', handlebars.engine);
+app.set('view engine', 'handlebars');
+app.use(express.static(__dirname + "/public"));
+
 var serviceAccount = require("./permissions.json");
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
@@ -23,8 +29,8 @@ const db = admin.firestore();
 
 //credentials
 let transporter = nodemailer.createTransport({
-host: "smtp.mailtrap.io",
-  port: 2525,  
+  host: "smtp.mailtrap.io",
+  port: 2525,
   auth: {
     user: "336bded6d33bec",
     pass: "e833d9b254bb4a"
@@ -62,3 +68,4 @@ function sendform(formdata) {
             return res.send('Email sent succesfully');
         });
 }
+
