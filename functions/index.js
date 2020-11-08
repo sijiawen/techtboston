@@ -6,6 +6,9 @@ const express = require('express');
 //const cors = require('cors');
 const app = express();
 //app.use(cors({ origin: true }));
+const port = 3000
+
+app.use(express.static('public'))
 
 app.use(bodyParser.urlencoded({
     extended: true
@@ -18,20 +21,6 @@ admin.initializeApp({
 });
 const db = admin.firestore();
 
-// create
-app.post('/api/create', (req, res) => {
-    (async () => {
-        try {
-          await db.collection('items').doc('/' + req.body.id + '/')
-              .create({item: req.body.item});
-          return res.status(200).send();
-        } catch (error) {
-          console.log(error);
-          return res.status(500).send(error);
-        }
-      })();
-  });
-
 //credentials
 let transporter = nodemailer.createTransport({
 host: "smtp.mailtrap.io",
@@ -42,66 +31,27 @@ host: "smtp.mailtrap.io",
   }
 });
 
-/*
-document.getElementById('email').send = function () {
-    var datecheck =
-        document.querySelector("#date [name='date']");
-    var myDate = datecheck.value;
-    var emailcheck =
-        document.querySelector("#email [name='email']");
-    var email = emailcheck.value;
-    var msgcheck =
-        document.querySelector("#msg [name='msg']");
-    var message = msgcheck.value;
-}
-*/
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
 
-var mailOptions = {
-  from: req.body.email,
-  to: req.body.email,
-  subject: 'Dear Future Me',
-  text: req.body.message
-};
-
-transporter.sendMail(mailOptions, function(error, info){
-  if (error) {
-    console.log(error);
-  } else {
-    console.log('Email sent: ' + info.response);
-  }
+app.post('/post-test', (req, res) => {
+    console.log('Got body:', req.body);
+    sendform(req.body);
+    res.sendStatus(200);
 });
 
-/*
-exports.sendEmail = 
-    .document('mail/{mailId}')
-    .onCreate((snap, context) => {
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`)
+})
 
-});
-
-const mailOptions = {
-    from: `softauthor1@gmail.com`,
-    to: snap.data().email,
-    subject: 'contact form message',
-    html: `<h1>Order Confirmation</h1>
-     <p> <b>Email: </b>${snap.data().email} </p>`
-};
-
-return transporter.sendMail(mailOptions, (error, data) => {
-    if (error) {
-        console.log(error)
-        return
-    }
-    console.log("Sent!")
-});
-
-exports.emailSender = functions.https.onRequest((req, res) => {   
-      
-            //Defining mailOptions
-            const mailOptions = {
-            from: 'test@gmail.com', //Adding sender's email
-            to: req.query.dest, //Getting recipient's email by query string
-            subject: 'Email Sent via Firebase', //Email subject
-            html: '<b>Sending emails with Firebase is easy!</b>' //Email content in HTML
+function sendform(formdata) {
+  console.log('Got body:', formdata);
+  const mailOptions = {
+            from: 'hello@recallapp.com', //Adding sender's email
+            to: formdata.email, //Getting recipient's email by query string
+            subject: 'Your ReCall', //Email subject
+            html: formdata.message //Email content in HTML
         };
   
         //Returning result
@@ -111,7 +61,4 @@ exports.emailSender = functions.https.onRequest((req, res) => {
             }
             return res.send('Email sent succesfully');
         });
-       
-});
-*/
-
+}
