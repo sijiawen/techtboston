@@ -13,8 +13,6 @@ admin.initializeApp({
 });
 const db = admin.firestore();
 
-
-
 // create
 app.post('/api/create', (req, res) => {
     (async () => {
@@ -28,19 +26,17 @@ app.post('/api/create', (req, res) => {
         }
       })();
   });
- 
 
-//Creating Nodemailer transporter using your Mailtrap SMTP details
+
 let transporter = nodemailer.createTransport({
-    host: "smtp.mailtrap.io",
+host: "smtp.mailtrap.io",
   port: 2525,  
   auth: {
     user: "336bded6d33bec",
     pass: "e833d9b254bb4a"
   }
 });
- 
-//Creating a Firebase Cloud Function
+
 exports.emailSender = functions.https.onRequest((req, res) => {   
       
             //Defining mailOptions
@@ -62,13 +58,3 @@ exports.emailSender = functions.https.onRequest((req, res) => {
 });
 
 
-
-
-
-
-
-app.get('/hello-world', (req, res) => {
-  return res.status(200).send('Hello World!');
-});
-
-exports.app = functions.https.onRequest(app);
