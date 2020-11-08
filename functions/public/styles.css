@@ -68,10 +68,11 @@ font-weight: 500;
 }
 
 #message {
-    height: 250px;
+    height: 240px;
     overflow-y: scroll;
     resize: none;
     border-color: #C26DBC;
+    border-radius: 20px;
   }
 
   #message::-webkit-scrollbar {
@@ -82,6 +83,32 @@ font-weight: 500;
     color:  #C26DBC;
     border-color: #C26DBC;
     border-style: solid;
+    border-width: thin;
     border-radius: 20px;
     padding: 5px 40px;
 }
+
+.email {
+    border-color: #C26DBC;
+    border-style: solid;
+    border-width: thin;
+    border-radius: 20px;
+    padding: 5px 10px;
+    width: 100%;
+}
+
+/* Profile */
+
+#profile {
+    background-color: #C8F4F9;
+}
+
+.letters {
+    height: 100px;
+}
+
+.dl-text {
+    color: #3CACAE;
+    font-family: "Rokkitt";
+    font-weight: 500;
+    }
