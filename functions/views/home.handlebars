@@ -1,0 +1,61 @@
+<title>ReCALL</title>
+
+<body>
+    <section id="landing" class="d-flex align-items-center p-5">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-6 text-center p-5">
+                    <h1 class="title">ReCALL</h1>
+                    <img src="/img/letter.svg" alt="envelope" class="img-fluid py-1">
+                </div>
+                <div class="col-sm-6 d-flex align-items-center mx-auto">
+                    <!-- Log In -->
+                    <form class="p-3 m-auto" id="login">
+                        <h1 class="d-text text-center"><strong>login</strong></h1>
+                        <div class="form-group">
+                            <label for="loginEmail" class="l-text">Email address</label>
+                            <input type="email" class="form-control" id="loginEmail" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <label for="loginPassword" class="l-text">Password</label>
+                            <input type="password" class="form-control" id="loginPassword" placeholder="Password">
+                        </div>
+                        <p class="d-text">New to ReCALL?
+                            <span onclick="createAcct()" class="l-text">Create an
+                                Account.</span>
+                        </p>
+                        <div class="d-flex flex-row-reverse">
+                            <button type="submit" class="submit">Submit</button>
+                        </div>
+                    </form>
+
+                    <!-- Sign Up -->
+                    <form class="p-3 m-auto" id="signup">
+                        <h1 class="d-text text-center"><strong>signup</strong></h1>
+                        <div class="form-group">
+                            <label for="newName" class="l-text">Name</label>
+                            <input type="text" class="form-control" id="newName" aria-describedby="emailHelp"
+                                placeholder="Enter name">
+                        </div>
+                        <div class="form-group">
+                            <label for="newEmail" class="l-text">Email address</label>
+                            <input type="email" class="form-control" id="newEmail" placeholder="Enter email">
+                        </div>
+                        <div class="form-group">
+                            <label for="newPassword" class="l-text">Password</label>
+                            <input type="password" class="form-control" id="newPassword" placeholder="Enter Password">
+                        </div>
+                        <p class="d-text">Have an ReCALL account? <span onclick="enterAcct()" class="l-text">Login
+                                now!</span>
+                        </p>
+                        <div class="d-flex flex-row-reverse">
+                            <button type="submit" class="submit">Submit</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+</body>

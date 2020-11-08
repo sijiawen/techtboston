@@ -11,6 +11,12 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 
+const handlebars = require('express-handlebars').create({ defaultLayout: 'main' });
+
+app.engine('handlebars', handlebars.engine);
+app.set('view engine', 'handlebars');
+app.use(express.static(__dirname + "/public"));
+
 var serviceAccount = require("./permissions.json");
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
@@ -20,22 +26,22 @@ const db = admin.firestore();
 
 // create
 app.post('/api/create', (req, res) => {
-    (async () => {
-        try {
-          await db.collection('items').doc('/' + req.body.id + '/')
-              .create({item: req.body.item});
-          return res.status(200).send();
-        } catch (error) {
-          console.log(error);
-          return res.status(500).send(error);
-        }
-      })();
-  });
+  (async () => {
+    try {
+      await db.collection('items').doc('/' + req.body.id + '/')
+        .create({ item: req.body.item });
+      return res.status(200).send();
+    } catch (error) {
+      console.log(error);
+      return res.status(500).send(error);
+    }
+  })();
+});
 
 //credentials
 let transporter = nodemailer.createTransport({
-host: "smtp.mailtrap.io",
-  port: 2525,  
+  host: "smtp.mailtrap.io",
+  port: 2525,
   auth: {
     user: "336bded6d33bec",
     pass: "e833d9b254bb4a"
@@ -115,3 +121,17 @@ exports.emailSender = functions.https.onRequest((req, res) => {
 });
 */
 
+app.get('/', (request, response) => {
+  response.render('home.handlebars');
+});
+
+app.get('/newletter', (request, response) => {
+  response.render('newletter.handlebars');
+});
+
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => {
+  console.log(`Listening at ${PORT}`);
+});
+
+exports.app = functions.https.onRequest(app);
