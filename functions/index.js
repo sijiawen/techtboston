@@ -33,7 +33,7 @@ app.post('/api/create', (req, res) => {
   })();
 });
 
-
+//credentials
 let transporter = nodemailer.createTransport({
   host: "smtp.mailtrap.io",
   port: 2525,
@@ -43,25 +43,76 @@ let transporter = nodemailer.createTransport({
   }
 });
 
-exports.emailSender = functions.https.onRequest((req, res) => {
+document.getElementById('email').send = function () {
+    var datecheck =
+        document.querySelector("#date [name='date']");
+    var myDate = datecheck.value;
+    var emailcheck =
+        document.querySelector("#email [name='email']");
+    var email = emailcheck.value;
+    var msgcheck =
+        document.querySelector("#msg [name='msg']");
+    var message = msgcheck.value;
+}
 
-  //Defining mailOptions
-  const mailOptions = {
-    from: 'test@gmail.com', //Adding sender's email
-    to: req.query.dest, //Getting recipient's email by query string
-    subject: 'Email Sent via Firebase', //Email subject
-    html: '<b>Sending emails with Firebase is easy!</b>' //Email content in HTML
-  };
+var mailOptions = {
+  from: email,
+  to: email,
+  subject: 'Dear Future Me',
+  text: message
+};
 
-  //Returning result
-  return transporter.sendMail(mailOptions, (err, info) => {
-    if (err) {
-      return res.send(err.toString());
-    }
-    return res.send('Email sent succesfully');
-  });
+transporter.sendMail(mailOptions, function(error, info){
+  if (error) {
+    console.log(error);
+  } else {
+    console.log('Email sent: ' + info.response);
+  }
+});
+
+/*
+exports.sendEmail = 
+    .document('mail/{mailId}')
+    .onCreate((snap, context) => {
 
 });
+
+const mailOptions = {
+    from: `softauthor1@gmail.com`,
+    to: snap.data().email,
+    subject: 'contact form message',
+    html: `<h1>Order Confirmation</h1>
+     <p> <b>Email: </b>${snap.data().email} </p>`
+};
+
+return transporter.sendMail(mailOptions, (error, data) => {
+    if (error) {
+        console.log(error)
+        return
+    }
+    console.log("Sent!")
+});
+
+exports.emailSender = functions.https.onRequest((req, res) => {   
+      
+            //Defining mailOptions
+            const mailOptions = {
+            from: 'test@gmail.com', //Adding sender's email
+            to: req.query.dest, //Getting recipient's email by query string
+            subject: 'Email Sent via Firebase', //Email subject
+            html: '<b>Sending emails with Firebase is easy!</b>' //Email content in HTML
+        };
+  
+        //Returning result
+        return transporter.sendMail(mailOptions, (err, info) => {
+            if(err){
+                return res.send(err.toString());
+            }
+            return res.send('Email sent succesfully');
+        });
+       
+});
+*/
 
 app.get('/', (request, response) => {
   response.render('home.handlebars');
