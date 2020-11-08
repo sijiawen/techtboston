@@ -112,3 +112,11 @@ font-weight: 500;
     font-family: "Rokkitt";
     font-weight: 500;
     }
+
+.side-bar {
+    background-color: #3CACAE;
+    height: 100vh;
+    color: white;
+    font-family: "Ubuntu";
+    font-weight: 900;
+}

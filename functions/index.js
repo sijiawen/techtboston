@@ -11,7 +11,7 @@ const port = 3000
 app.use(express.static('public'))
 
 app.use(bodyParser.urlencoded({
-    extended: true
+  extended: true
 }));
 
 const handlebars = require('express-handlebars').create({ defaultLayout: 'main' });
@@ -42,9 +42,9 @@ app.get('/', (req, res) => {
 })
 
 app.post('/post-test', (req, res) => {
-    console.log('Got body:', req.body);
-    sendform(req.body);
-    res.sendStatus(200);
+  console.log('Got body:', req.body);
+  sendform(req.body);
+  res.sendStatus(200);
 });
 
 app.listen(port, () => {
@@ -54,18 +54,18 @@ app.listen(port, () => {
 function sendform(formdata) {
   console.log('Got body:', formdata);
   const mailOptions = {
-            from: 'hello@recallapp.com', //Adding sender's email
-            to: formdata.email, //Getting recipient's email by query string
-            subject: 'Your ReCall', //Email subject
-            html: formdata.message //Email content in HTML
-        };
-  
-        //Returning result
-        return transporter.sendMail(mailOptions, (err, info) => {
-            if(err){
-                return res.send(err.toString());
-            }
-            return res.send('Email sent succesfully');
-        });
+    from: 'hello@recallapp.com', //Adding sender's email
+    to: formdata.email, //Getting recipient's email by query string
+    subject: 'Your ReCall', //Email subject
+    html: formdata.message //Email content in HTML
+  };
+
+  //Returning result
+  return transporter.sendMail(mailOptions, (err, info) => {
+    if (err) {
+      return res.send(err.toString());
+    }
+    return res.send('Email sent succesfully');
+  });
 }
 

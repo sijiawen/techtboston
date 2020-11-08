@@ -13,63 +13,163 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <section id="profile" class="d-flex align-items-center p-5">
+    <section id="profile" class="d-flex align-items-center">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-sm-6 col-md-4">
-                    <h1 class="title">hello, Byte</h1><br>
-                    <h3 class="d-title">email: </h3>
+                <div class="col-sm-6 col-lg-4 side-bar d-flex align-items-center text-center">
+                    <div>
+                        <h1 class="display-3">hello, byte!</h1>
+                        <h3>email: techt.boston@yahoo.com</h3>
+                    </div>
                 </div>
 
-                <div class="col-sm-6 col-md-8 text-center py-5">
+                <div class="col-sm-6 col-lg-8 text-center py-5 d-flex align-items-center">
                     <div class="row">
                         <div class="col-3">
-                            <img src="/img/poemail.png" alt="email" class="img-responsive letters">
-                            <h3 class="dl-text mt-2">Opened on August 29, 2020</h3>
-                            <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-primary" data-toggle="modal"
-                                data-target="#exampleModalCenter">
-                                Launch demo modal
-                            </button>
-
+                            <a href="#" data-toggle="modal" data-target="#modal1"><img src="/img/poemail.png"
+                                    alt="email" class="img-responsive letters"></a>
+                            <h3 class="dl-text mt-2">Opened on Aug. 29, 2020</h3>
                             <!-- Modal -->
-                            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                            <div class="modal fade" id="modal1" tabindex="-1" role="dialog"
                                 aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                                            <h5 class="modal-title dl-text" id="exampleModalLongTitle">From August 29,
+                                                2020</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            ...
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                            <p>Dear Future me,<br>
+                                                According to all known laws of aviation, there is no way a bee should be
+                                                able to fly. Its wings are too small to get its fat little body off the
+                                                ground. The bee, of course, flies anyway because bees don't care what
+                                                humans
+                                                think is impossible. Yellow, black. Yellow, black. Yellow, black.
+                                                Yellow,
+                                                black. Ooh, black and yellow! Let's shake it up a little. Barry!
+                                                Breakfast
+                                                is ready! Ooming! Hang on a second. Hello? - Barry? - Adam? - Oan you
+                                                believe this is happening? - I can't. I'll pick you up. Looking sharp.
+                                                <br>
+                                                Use
+                                                the stairs. Your father paid good money for those. Sorry. I'm excited.
+                                                Here's the graduate. We're very proud of you, son. A perfect report
+                                                card,
+                                                all B's. Very proud. Ma! I got a thing going here. - You got lint on
+                                                your
+                                                fuzz. - Ow! That's me! - Wave to us! We'll be in row 118,000. - Bye!
+
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
 
-                        </div>
                         <div class="col-3">
-                            <img src="/img/goemail.png" alt="email" class="img-responsive letters">
+                            <a href="#" data-toggle="modal" data-target="#modal2"><img src="/img/goemail.png"
+                                    alt="email" class="img-responsive letters"></a>
                             <h3 class="l-text mt-2">Opened on Oct. 3, 2020</h3>
+                            <!-- Modal -->
+                            <div class="modal fade" id="modal2" tabindex="-1" role="dialog"
+                                aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title l-text" id="exampleModalLongTitle">From October 3,
+                                                2020</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>Dear Future me,<br>
+                                                According to all known laws of aviation, there is no way a bee should be
+                                                able to fly. Its wings are too small to get its fat little body off the
+                                                ground. The bee, of course, flies anyway because bees don't care what
+                                                humans
+                                                think is impossible. Yellow, black. Yellow, black. Yellow, black.
+                                                Yellow,
+                                                black. Ooh, black and yellow! Let's shake it up a little. Barry!
+                                                Breakfast
+                                                is ready! Ooming! Hang on a second. Hello? - Barry? - Adam? - Oan you
+                                                believe this is happening? - I can't. I'll pick you up. Looking sharp.
+                                                <br>
+                                                Use
+                                                the stairs. Your father paid good money for those. Sorry. I'm excited.
+                                                Here's the graduate. We're very proud of you, son. A perfect report
+                                                card,
+                                                all B's. Very proud. Ma! I got a thing going here. - You got lint on
+                                                your
+                                                fuzz. - Ow! That's me! - Wave to us! We'll be in row 118,000. - Bye!
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+
                         <div class="col-3">
-                            <img src="/img/poemail.png" alt="email" class="img-responsive letters">
-                            <h3 class="dl-text mt-2">Opened on November 1, 2020</h3>
+                            <a href="#" data-toggle="modal" data-target="#modal3"><img src="/img/poemail.png"
+                                    alt="email" class="img-responsive letters"></a>
+                            <h3 class="dl-text mt-2">Opened on Nov. 1, 2020</h3>
+                            <!-- Modal -->
+                            <div class="modal fade" id="modal3" tabindex="-1" role="dialog"
+                                aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title dl-text" id="exampleModalLongTitle">From November 1,
+                                                2020</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>Dear Future me,<br>
+                                                According to all known laws of aviation, there is no way a bee should be
+                                                able to fly. Its wings are too small to get its fat little body off the
+                                                ground. The bee, of course, flies anyway because bees don't care what
+                                                humans
+                                                think is impossible. Yellow, black. Yellow, black. Yellow, black.
+                                                Yellow,
+                                                black. Ooh, black and yellow! Let's shake it up a little. Barry!
+                                                Breakfast
+                                                is ready! Ooming! Hang on a second. Hello? - Barry? - Adam? - Oan you
+                                                believe this is happening? - I can't. I'll pick you up. Looking sharp.
+                                                <br>
+                                                Use
+                                                the stairs. Your father paid good money for those. Sorry. I'm excited.
+                                                Here's the graduate. We're very proud of you, son. A perfect report
+                                                card,
+                                                all B's. Very proud. Ma! I got a thing going here. - You got lint on
+                                                your
+                                                fuzz. - Ow! That's me! - Wave to us! We'll be in row 118,000. - Bye!
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+
                         <div class="col-3">
                             <img src="/img/gcemail.png" alt="email" class="img-responsive letters">
-                            <h3 class="l-text mt-2">Opening on March 4, 2021</h3>
+                            <h3 class="l-text mt-2">Opening on Mar. 4, 2021</h3>
                         </div>
                         <div class="col-3">
                             <img src="/img/pcemail.png" alt="email" class="img-responsive letters">
@@ -78,6 +178,15 @@
                         <div class="col-3">
                             <img src="/img/gcemail.png" alt="email" class="img-responsive letters">
                             <h3 class="l-text mt-2">Opening on Sept. 6, 2021</h3>
+                        </div>
+                        <div class="col-3">
+                            <img src="/img/pcemail.png" alt="email" class="img-responsive letters">
+                            <h3 class="dl-text mt-2">Opening on July 20, 2022</h3>
+                        </div>
+                        <div class="col-3">
+                            <a href="newletter.html"><img src="/img/add.png" alt="email"
+                                    class="img-responsive letters my-3"></a>
+                            <h3 class="l-text mt-2">New Letter</h3>
                         </div>
                     </div>
                 </div>
