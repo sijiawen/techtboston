@@ -68,7 +68,20 @@ font-weight: 500;
 }
 
 #message {
-    height:150px;
+    height: 250px;
     overflow-y: scroll;
     resize: none;
+    border-color: #C26DBC;
   }
+
+  #message::-webkit-scrollbar {
+    display: none;
+    }
+
+.inputDate {
+    color:  #C26DBC;
+    border-color: #C26DBC;
+    border-style: solid;
+    border-radius: 20px;
+    padding: 5px 40px;
+}
