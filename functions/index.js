@@ -34,7 +34,6 @@ app.post('/api/create', (req, res) => {
 });
 
 
-//Creating Nodemailer transporter using your Mailtrap SMTP details
 let transporter = nodemailer.createTransport({
   host: "smtp.mailtrap.io",
   port: 2525,
@@ -44,7 +43,6 @@ let transporter = nodemailer.createTransport({
   }
 });
 
-//Creating a Firebase Cloud Function
 exports.emailSender = functions.https.onRequest((req, res) => {
 
   //Defining mailOptions
@@ -65,21 +63,11 @@ exports.emailSender = functions.https.onRequest((req, res) => {
 
 });
 
-// app.get('/hello-world', (req, res) => {
-//   return res.status(200).send('Hello World!');
-// });
+//Defining mailOptions
+const mailOptions = {
+  from: 'test@gmail.com', //Adding sender's email
+  to: req.query.dest, //Getting recipient's email by query string
+  subject: 'Email Sent via Firebase', //Email subject
+  html: '<b>Sending emails with Firebase is easy!</b>' //Email content in HTML
+};
 
-app.get('/', (request, response) => {
-  response.render('home.handlebars');
-});
-
-app.get('/newletter', (request, response) => {
-  response.render('newletter.handlebars');
-});
-
-const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => {
-  console.log(`Listening at ${PORT}`);
-});
-
-exports.app = functions.https.onRequest(app);
