@@ -1,10 +1,18 @@
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 const nodemailer = require('nodemailer');
+var bodyParser = require('body-parser');
 const express = require('express');
-const cors = require('cors');
+//const cors = require('cors');
 const app = express();
-app.use(cors({ origin: true }));
+//app.use(cors({ origin: true }));
+const port = 3000
+
+app.use(express.static('public'))
+
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 
 const handlebars = require('express-handlebars').create({ defaultLayout: 'main' });
 
@@ -19,21 +27,7 @@ admin.initializeApp({
 });
 const db = admin.firestore();
 
-// create
-app.post('/api/create', (req, res) => {
-  (async () => {
-    try {
-      await db.collection('items').doc('/' + req.body.id + '/')
-        .create({ item: req.body.item });
-      return res.status(200).send();
-    } catch (error) {
-      console.log(error);
-      return res.status(500).send(error);
-    }
-  })();
-});
-
-
+//credentials
 let transporter = nodemailer.createTransport({
   host: "smtp.mailtrap.io",
   port: 2525,
@@ -43,14 +37,27 @@ let transporter = nodemailer.createTransport({
   }
 });
 
-exports.emailSender = functions.https.onRequest((req, res) => {
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
 
-  //Defining mailOptions
+app.post('/post-test', (req, res) => {
+  console.log('Got body:', req.body);
+  sendform(req.body);
+  res.sendStatus(200);
+});
+
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`)
+})
+
+function sendform(formdata) {
+  console.log('Got body:', formdata);
   const mailOptions = {
-    from: 'test@gmail.com', //Adding sender's email
-    to: req.query.dest, //Getting recipient's email by query string
-    subject: 'Email Sent via Firebase', //Email subject
-    html: '<b>Sending emails with Firebase is easy!</b>' //Email content in HTML
+    from: 'hello@recallapp.com', //Adding sender's email
+    to: formdata.email, //Getting recipient's email by query string
+    subject: 'Your ReCall', //Email subject
+    html: formdata.message //Email content in HTML
   };
 
   //Returning result
@@ -60,14 +67,5 @@ exports.emailSender = functions.https.onRequest((req, res) => {
     }
     return res.send('Email sent succesfully');
   });
-
-});
-
-//Defining mailOptions
-const mailOptions = {
-  from: 'test@gmail.com', //Adding sender's email
-  to: req.query.dest, //Getting recipient's email by query string
-  subject: 'Email Sent via Firebase', //Email subject
-  html: '<b>Sending emails with Firebase is easy!</b>' //Email content in HTML
-};
+}
 
