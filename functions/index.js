@@ -1,10 +1,15 @@
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 const nodemailer = require('nodemailer');
+var bodyParser = require('body-parser');
 const express = require('express');
-const cors = require('cors');
+//const cors = require('cors');
 const app = express();
-app.use(cors({ origin: true }));
+//app.use(cors({ origin: true }));
+
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
 
 const handlebars = require('express-handlebars').create({ defaultLayout: 'main' });
 
@@ -43,6 +48,7 @@ let transporter = nodemailer.createTransport({
   }
 });
 
+/*
 document.getElementById('email').send = function () {
     var datecheck =
         document.querySelector("#date [name='date']");
@@ -54,12 +60,13 @@ document.getElementById('email').send = function () {
         document.querySelector("#msg [name='msg']");
     var message = msgcheck.value;
 }
+*/
 
 var mailOptions = {
-  from: email,
-  to: email,
+  from: req.body.email,
+  to: req.body.email,
   subject: 'Dear Future Me',
-  text: message
+  text: req.body.message
 };
 
 transporter.sendMail(mailOptions, function(error, info){
